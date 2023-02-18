@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>간단한 웹 메모장</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="sidebar">
+      <ul>
+        <li><a class="sideTap" href="/main.html">홈</a></li>
+        <li><a class="sideTap" href="/그림판/index.html">웹 그림판</a></li>
+        <li>
+          <a class="sideTap" href="/이미지 변환/index.html">확장자 변환기</a>
+        </li>
+        <li><a class="sideTap" href="/simple note/index.html">웹 메모장</a></li>
+        <li><a class="sideTap" href="/워터마크/index.html">워터마크</a></li>
+        <li class="tip">
+          <p>
+            팁:
+            <p >1.메모를 쓰는 창의 우측하단의 대각선을 클릭하여 창의 크기를 조절
+              할 수 있습니다.</p>
+            <p>2. 메모창에 내용을 적은 후 save버튼을 누르시면 내용이
+              저장됩니다.</p>
+            <p>3. 저장된 내용은 Delete버튼을 누르면 삭제가 됩니다.</p>
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="notebook">
+      <textarea id="noteInput"></textarea>
+      <button class="btnSave">Save</button>
+      <ul id="noteList"></ul>
+    </div>
+    <script>
+      const noteInput = document.querySelector("#noteInput");
+      const btnSave = document.querySelector(".btnSave");
+      const noteList = document.querySelector("#noteList");
+      btnSave.addEventListener("click", function () {
+        const notes = JSON.parse(localStorage.getItem("notes")) || [];
+        notes.push(noteInput.value);
+        localStorage.setItem("notes", JSON.stringify(notes));
+        renderNotes();
+        noteInput.value = "";
+      });
+
+      window.addEventListener("load", function () {
+        renderNotes();
+      });
+
+      function renderNotes() {
+        const notes = JSON.parse(localStorage.getItem("notes")) || [];
+        noteList.innerHTML = "";
+        notes.forEach(function (note, index) {
+          const li = document.createElement("li");
+          li.innerHTML = `
+      ${note}
+      <button class="delete">Delete</button>
+    `;
+          li.querySelector(".delete").addEventListener("click", function () {
+            notes.splice(index, 1);
+            localStorage.setItem("notes", JSON.stringify(notes));
+            renderNotes();
+          });
+          noteList.appendChild(li);
+        });
+      }
+    </script>
+  </body>
+</html>

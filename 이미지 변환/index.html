@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>확장자 변환기스</title>
+   <link rel="stylesheet" href="styel.css">
+  </head>
+  <body>
+    <div id="sidebar">
+      <ul>
+          <li><a class="sideTap" href="/main.html">홈</a></li>
+          <li><a class="sideTap" href="/그림판/index.html">웹 그림판</a></li>
+          <li><a class="sideTap" href="/이미지 변환/index.html">확장자 변환기</a></li>
+          <li><a class="sideTap" href="/simple note/index.html">웹 메모장</a></li>
+          <li><a class="sideTap" href="/워터마크/index.html">워터마크</a></li>
+          <li class="tip">
+            <p>
+              팁:
+              <p >1.파일선택 버튼을 눌러 원하시는 이미지를 업로드하세요.</p>
+              <p>2. 이미지를 업로드 하였으면, 너비와 높이를 설정하고 변환을 원하는 확장자를 선택한 후 변환하기 버튼을 누르세요.</p>
+              <p>3. 변환하기 버튼을 누르면 화면에 변환한 이미지가 출력됩니다. 이후, 다운로드가 활성화되면 다운로드를 눌러서 저장하세요.</p>
+              <p>4. 다운로드는 이미지를 업로드하지않으면 활성화되지 않습니다.</p>
+            </p>
+          </li>
+        </ul>
+    </div>
+    <h1>확장자 변환 웹서비스</h1>
+    <input type="file" id="input-image" accept="image/*">
+    <label for="output-width">출력 너비:</label>
+    <input type="number" id="output-width" value="1024">
+    <label for="output-height">출력 높이:</label>
+    <input type="number" id="output-height" value="1024">
+    <select id="output-format">
+      <option value="image/jpeg">JPEG</option>
+      <option value="image/png">PNG</option>
+      <option value="image/jpg">JPG</option>
+    </select>
+    <button onclick="convert()">변환하기</button>
+    <a id="download-link" download>다운로드</a>
+    <canvas id="output-image"></canvas>
+
+    <script>
+    
+      function convert() {
+        var input = document.getElementById("input-image").files[0];
+        var canvas = document.getElementById("output-image");
+        var context = canvas.getContext("2d");
+      
+        var reader = new FileReader();
+        reader.onload = function() {
+          var img = new Image();
+          img.onload = function() {
+            
+            // 출력 크기를 설정합니다.
+            var outputWidth = parseInt(document.getElementById("output-width").value);
+            var outputHeight = parseInt(document.getElementById("output-height").value);
+            canvas.width = outputWidth;
+            canvas.height = outputHeight;
+
+            // 이미지를 그리기 전에 컬러 모드를 RGB로 변경합니다.
+            context.imageSmoothingEnabled = true;
+            context.drawImage(img, 0, 0, outputWidth, outputHeight);
+
+            // 이미지 변환 로직을 작성합니다.
+            var outputFormat = document.getElementById("output-format").value;
+            var outputData = canvas.toDataURL(outputFormat, 1);
+
+            // 다운로드 링크를 설정합니다.
+            var downloadLink = document.getElementById("download-link");
+            downloadLink.href = outputData;
+            downloadLink.download = "converted_image." + outputFormat.split("/")[1];
+
+            
+          };
+          img.src = reader.result;
+        };
+        reader.readAsDataURL(input);
+        
+      }
+    </script>
+  </body>
+</html>

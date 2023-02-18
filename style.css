@@ -1,0 +1,106 @@
+  /* 사이드바 스타일 */
+  #sidebar {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #f5f5f5;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  /* 리스트 스타일 */
+  #sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* 링크 스타일 */
+  #sidebar ul li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  
+  #sidebar ul li a:hover {
+    background-color: #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* 메인 콘텐츠 스타일 */
+  main {
+    margin-left: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  /* 각 탭의 스타일 */
+  .sideTap {
+    position: relative;
+  }
+  
+  .sideTap::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #333;
+    transition: 0.3s;
+  }
+  
+  .sideTap:hover::before {
+    width: 100%;
+  }
+  
+    div {
+      margin: 20px;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      width: 400px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+  
+    div:hover {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+  
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #555;
+    }
+  
+    p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #888;
+    }
+  
+    .a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #2b8fd2;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease-in-out;
+    }
+  
+    .a:hover {
+      background-color: #0059b3;
+    }
+  
+   
