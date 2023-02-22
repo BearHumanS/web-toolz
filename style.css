@@ -1,4 +1,12 @@
   /* 사이드바 스타일 */
+  @media screen and (max-width: 767px) {
+    #sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    box-shadow: none;
+    }}
+  
   #sidebar {
     width: 200px;
     position: fixed;
@@ -103,4 +111,3 @@
       background-color: #0059b3;
     }
   
-   

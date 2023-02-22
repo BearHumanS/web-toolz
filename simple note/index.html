@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>간단한 웹 메모장</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
     <div id="sidebar">
@@ -17,6 +17,7 @@
         </li>
         <li><a class="sideTap" href="/simple note/index.html">웹 메모장</a></li>
         <li><a class="sideTap" href="/워터마크/index.html">워터마크</a></li>
+        <li><a class="sideTap" href="/대출이자계산기/index.html">대출 이자 계산기</a></li>
         <li class="tip">
           <p>
             팁:
@@ -34,39 +35,6 @@
       <button class="btnSave">Save</button>
       <ul id="noteList"></ul>
     </div>
-    <script>
-      const noteInput = document.querySelector("#noteInput");
-      const btnSave = document.querySelector(".btnSave");
-      const noteList = document.querySelector("#noteList");
-      btnSave.addEventListener("click", function () {
-        const notes = JSON.parse(localStorage.getItem("notes")) || [];
-        notes.push(noteInput.value);
-        localStorage.setItem("notes", JSON.stringify(notes));
-        renderNotes();
-        noteInput.value = "";
-      });
-
-      window.addEventListener("load", function () {
-        renderNotes();
-      });
-
-      function renderNotes() {
-        const notes = JSON.parse(localStorage.getItem("notes")) || [];
-        noteList.innerHTML = "";
-        notes.forEach(function (note, index) {
-          const li = document.createElement("li");
-          li.innerHTML = `
-      ${note}
-      <button class="delete">Delete</button>
-    `;
-          li.querySelector(".delete").addEventListener("click", function () {
-            notes.splice(index, 1);
-            localStorage.setItem("notes", JSON.stringify(notes));
-            renderNotes();
-          });
-          noteList.appendChild(li);
-        });
-      }
-    </script>
+    <script src="app.js"></script>
   </body>
 </html>
