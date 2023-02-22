@@ -1,5 +1,5 @@
   /* 사이드바 스타일 */
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 320px)and (max-device-width: 568px) {
     #sidebar {
     width: 100%;
     height: auto;
