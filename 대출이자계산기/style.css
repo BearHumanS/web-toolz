@@ -147,3 +147,7 @@ body {
         color: #999;
         text-align: center;
       }
+
+     .aka {
+        display: none;
+      }

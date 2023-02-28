@@ -134,3 +134,7 @@ body {
     width: 400px;
     height: 200px;
   }
+  h1 {
+    font-size: 10px;
+    display: none;
+  }

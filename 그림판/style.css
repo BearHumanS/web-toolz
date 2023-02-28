@@ -142,3 +142,9 @@
         color: #999;
         text-align: center;
       }
+
+      h1 {
+        font-size: 10px;
+        display: none;
+      }
+    

@@ -20,11 +20,14 @@
               <p>2. 이미지를 업로드 하였으면, 너비와 높이를 설정하고 변환을 원하는 확장자를 선택한 후 변환하기 버튼을 누르세요.</p>
               <p>3. 변환하기 버튼을 누르면 화면에 변환한 이미지가 출력됩니다. 이후, 다운로드가 활성화되면 다운로드를 눌러서 저장하세요.</p>
               <p>4. 다운로드는 이미지를 업로드하지않으면 활성화되지 않습니다.</p>
+              <h1 class="aka">
+                일반 이미지 변환기, 온라인 이미지 변환기, 무료 이미지 변환기, Google 이미지 변환기, 이미지 변환기 웹, 이미지 변환기, 변환, , 일반 이미지 변환, 온라인 이미지 변환, 웹 이미지 변환기, 이미지 확장 변환, 이미지 확장 변환기, 웹 이미지 확장 변환기, 무료 이미지 확장 변환기, 온라인 이미지 확장 변환기, 글꼴 저장, 크기, 색깔, 사진, 이미지, 변환, generic image converter, online image converter, free image converter, Google image converter, image converter web, image converter, conversion, , general image conversion, online image conversion, web image extension converter, free image extension converter, online image extension converter, font storage, size, color, photo, image, conversion
+                </h1>
             </p>
           </li>
         </ul>
     </div>
-    <h1>확장자 변환기</h1>
+    <h2>확장자 변환기</h2>
     <input type="file" id="input-image" accept="image/*">
     <label for="output-width">출력 너비:</label>
     <input type="number" id="output-width" value="1024">
@@ -41,7 +44,7 @@
 
     <script>
     
-      function convert() {
+    function convert() {
         var input = document.getElementById("input-image").files[0];
         var canvas = document.getElementById("output-image");
         var context = canvas.getContext("2d");

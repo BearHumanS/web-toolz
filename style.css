@@ -1,113 +1,154 @@
-  /* 사이드바 스타일 */
-  @media screen and (max-width: 320px)and (max-device-width: 568px) {
-    #sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-    box-shadow: none;
-    }}
-  
+/* Sidebar styles */
+#sidebar {
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #f5f5f5;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* List style for sidebar */
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Link style for sidebar */
+#sidebar ul li a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+/* Hover effect for sidebar links */
+#sidebar ul li a:hover {
+  background-color: #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Main content styles */
+main {
+  margin-left: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Styles for each tab in the sidebar */
+.sideTap {
+  position: relative;
+}
+
+.sideTap::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #333;
+  transition: 0.3s;
+}
+
+.sideTap:hover::before {
+  width: 100%;
+}
+
+/* Styles for the content boxes */
+div {
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+div:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Styles for headings in the content boxes */
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* Styles for paragraph text in the content boxes */
+p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #888;
+}
+
+/* Styles for the action button in the content boxes */
+.a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2b8fd2;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.a:hover {
+  background-color: #0059b3;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
   #sidebar {
-    width: 200px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background-color: #f5f5f5;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-  
-  /* 리스트 스타일 */
-  #sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* 링크 스타일 */
-  #sidebar ul li a {
-    display: block;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    transition: 0.3s;
-  }
-  
-  #sidebar ul li a:hover {
-    background-color: #ddd;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* 메인 콘텐츠 스타일 */
-  main {
-    margin-left: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  
-  /* 각 탭의 스타일 */
-  .sideTap {
+    width: 80%;
     position: relative;
+    height: auto;
+    box-shadow: none;
+    z-index: auto;
+    margin: 0 auto;
   }
-  
-  .sideTap::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background-color: #333;
-    transition: 0.3s;
+
+  #sidebar ul li a {
+    padding: 10px 0;
+    text-align: center;
   }
-  
-  .sideTap:hover::before {
+
+  main {
+    margin-left: 0;
+  }
+
+  div {
     width: 100%;
   }
+}
+
+#main-h1 {
+  text-align: center;
+  font-size: 50px;
+  margin: 50px;
+  margin-left: 200px;
+}
+
+@media (max-width: 768px) { 
+  #main-h1 {
+    margin: 0 auto;
+    font-size: 15px;
+    text-align: center;
+  }
+}
+
+.aka {
   
-    div {
-      margin: 20px;
-      padding: 20px;
-      border: 2px solid #ccc;
-      border-radius: 5px;
-      width: 400px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      transition: box-shadow 0.3s ease-in-out;
-    }
-  
-    div:hover {
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    }
-  
-    h1 {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #555;
-    }
-  
-    p {
-      font-size: 16px;
-      margin-bottom: 20px;
-      color: #888;
-    }
-  
-    .a {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #2b8fd2;
-      color: #fff;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background-color 0.3s ease-in-out;
-    }
-  
-    .a:hover {
-      background-color: #0059b3;
-    }
-  
+  display: none;
+}

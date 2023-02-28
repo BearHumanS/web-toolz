@@ -23,14 +23,17 @@
                   <p>4. 모두다 설정하셨으면, 워터마크 추가 버튼을 누르세요.</p>
                   <p>5. 미리보기 화면을 통해 원하는 위치를 설정해서 수정해보세요.</p>
                   <p>6. 모든 작업이 끝났으면 다운로드 버튼을 눌러 저장하세요.</p>
+                  <h1 class="aka">
+                    워터마크, 웹 워터마크, 워터마크 웹, 온라인 워터마크 , 무료 워터마크, 구글 워터마크, 글꼴 저장, 크기, 색깔, 사진, 이미지, 변환, watermark, web watermark, watermark web, online watermark, free watermark, google watermark, font storage, size, color, photo, image, conversion
+                    </h1>
                 </p>
               </li>
           </ul>
       </div>
-    <h1>이미지 업로드</h1>
+    <h2>이미지 업로드</h2>
     <input type="file" id="inputImage">
     <br><br>
-    <h1>워터마크 설정</h1>
+    <h2>워터마크 설정</h2>
     <input type="text" id="watermarkText" placeholder="워터마크 텍스트">
     <input type="color" id="watermarkColor" value="#000000">
     <input type="range" id="watermarkSize" min="10" max="100" step="10" value="30">
@@ -44,41 +47,6 @@
     <button onclick="addWatermark()">워터마크 추가</button>
     <a href="#" id="downloadLink" download="watermarked-image.png"><button>다운로드</button></a>
 
-    <script>
-      function addWatermark() {
-        const inputImage = document.getElementById('inputImage');
-        const watermarkText = document.getElementById('watermarkText').value;
-        const watermarkColor = document.getElementById('watermarkColor').value;
-        const watermarkSize = document.getElementById('watermarkSize').value;
-        const watermarkX = document.getElementById('watermarkX').value;
-        const watermarkY = document.getElementById('watermarkY').value;
-        const preview = document.getElementById('preview');
-        const downloadLink = document.getElementById('downloadLink');
-
-        // 이미지 파일을 불러옴
-        const fileReader = new FileReader();
-        fileReader.readAsDataURL(inputImage.files[0]);
-        fileReader.onload = function(event) {
-          const image = new Image();
-          image.src = event.target.result;
-          image.onload = function() {
-            // 캔버스에 이미지를 그림
-            const canvas = document.createElement('canvas');
-            canvas.width = image.width;
-            canvas.height = image.height;
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(image, 0, 0);
-            // 워터마크를 추가
-            ctx.font = `${watermarkSize}px Arial`;
-            ctx.fillStyle = watermarkColor;
-            ctx.fillText(watermarkText, watermarkX, watermarkY);
-            // 미리보기와 다운로드 링크를 업데이트
-            preview.innerHTML = '';
-            preview.appendChild(canvas);
-            downloadLink.href = canvas.toDataURL('image/png');
-          }
-        };
-      }
-    </script>
+    <script src="app.js"></script>
   </body>
 </html>
